@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie Recommendation Explorer</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+h1 {
+    margin-top: 30px;
+    font-size: 40px;
+}
+
+.genre-buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button {
+    padding: 12px 22px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: white;
+    color: #333;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+button:hover {
+    transform: scale(1.2);
+    background: #ffd369;
+}
+
+.card {
+    margin-top: 40px;
+    width: 320px;
+    background: white;
+    color: black;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.rating {
+    color: gold;
+    font-size: 20px;
+}
+
+#movieContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎬 Movie Recommendation Explorer</h1>
+
+<div class="genre-buttons">
+<button onclick="recommendMovie('action')">Action</button>
+<button onclick="recommendMovie('comedy')">Comedy</button>
+<button onclick="recommendMovie('drama')">Drama</button>
+<button onclick="recommendMovie('scifi')">Sci-Fi</button>
+<button onclick="recommendMovie('romantic')">Romantic</button>
+</div>
+
+<div id="movieContainer"></div>
+
+<script>
+
+function recommendMovie(genre) {
+
+let movie = [];
+
+if (genre === "action") {
+movie = [
+{
+title:"Avengers: Endgame",
+description:"Superheroes unite to save the universe.",
+rating:"★★★★☆",
+image:"endgame.jpeg",
+link:"https://www.imdb.com/title/tt4154796/ratings/"
+},
+{
+title:"John Wick",
+description:"A retired hitman seeks revenge.",
+rating:"★★★★☆",
+image:"johnwick.jpeg",
+link:"https://www.google.com/search?q=John+Wick+reviews"
+},
+{
+title:"Mad Max: Fury Road",
+description:"High-speed action in a desert wasteland.",
+rating:"★★★★★",
+image:"madmax.jpeg",
+link:"https://www.google.com/search?q=Mad+Max+Fury+Road+reviews"
+},
+{
+title:"Gladiator",
+description:"A Roman general seeks revenge.",
+rating:"★★★★★",
+image:"gladiator.jpeg",
+link:"https://www.google.com/search?q=Gladiator+movie+reviews"
+},
+{
+title:"Mission Impossible",
+description:"An agent completes impossible missions.",
+rating:"★★★★☆",
+image:"missionimp.jpeg",
+link:"https://www.google.com/search?q=Mission+Impossible+reviews"
+}
+];
+}
+
+else if (genre === "comedy") {
+movie = [
+{
+title:"3 Idiots",
+description:"A fun story about friendship and college life.",
+rating:"★★★★★",
+image:"3idiots.jpeg",
+link:"https://www.imdb.com/title/tt1187043/ratings/"
+},
+{
+title:"Home Alone",
+description:"A boy protects his house from burglars.",
+rating:"★★★★☆",
+image:"homealone.jpeg",
+link:"https://www.google.com/search?q=Home+Alone+reviews"
+},
+{
+title:"Mr. Bean",
+description:"Funny adventures of Mr. Bean.",
+rating:"★★★★☆",
+image:"mrbean.jpeg",
+link:"https://www.google.com/search?q=Mr+Bean+movie+reviews"
+},
+{
+title:"The Mask",
+description:"A man discovers a magical mask.",
+rating:"★★★★☆",
+image:"themask.jpeg",
+link:"https://www.google.com/search?q=The+Mask+movie+reviews"
+},
+{
+title:"Rush Hour",
+description:"Comedy action with two detectives.",
+rating:"★★★★☆",
+image:"rushhour.jpeg",
+link:"https://www.google.com/search?q=Rush+Hour+reviews"
+}
+];
+}
+
+else if (genre === "drama") {
+movie = [
+{
+title:"The Pursuit of Happyness",
+description:"A father struggles to build a better life.",
+rating:"★★★★☆",
+image:"thepursuit.jpeg",
+link:"https://www.google.com/search?q=The+Pursuit+of+Happyness+reviews"
+},
+{
+title:"Forrest Gump",
+description:"Life journey of a simple man.",
+rating:"★★★★★",
+image:"forrestgump.jpeg",
+link:"https://www.google.com/search?q=Forrest+Gump+reviews"
+},
+{
+title:"The Shawshank Redemption",
+description:"Hope and friendship in prison.",
+rating:"★★★★★",
+image:"theshawshank.jpeg",
+link:"https://www.google.com/search?q=Shawshank+Redemption+reviews"
+},
+{
+title:"Fight Club",
+description:"A man forms an underground fight club.",
+rating:"★★★★☆",
+image:"fightclub.jpeg",
+link:"https://www.google.com/search?q=Fight+Club+reviews"
+},
+{
+title:"A Beautiful Mind",
+description:"Story of a brilliant mathematician.",
+rating:"★★★★☆",
+image:"abeautifulmind.jpeg",
+link:"https://www.google.com/search?q=A+Beautiful+Mind+reviews"
+}
+];
+}
+
+else if (genre === "scifi") {
+movie = [
+{
+title:"Interstellar",
+description:"A space mission to save humanity.",
+rating:"★★★★★",
+image:"interstellar.jpeg",
+link:"https://www.google.com/search?q=Interstellar+reviews"
+},
+{
+title:"Inception",
+description:"Dream within a dream.",
+rating:"★★★★★",
+image:"inception.jpeg",
+link:"https://www.google.com/search?q=Inception+reviews"
+},
+{
+title:"The Matrix",
+description:"Reality is a simulation.",
+rating:"★★★★★",
+image:"thematrix.jpeg",
+link:"https://www.google.com/search?q=The+Matrix+reviews"
+},
+{
+title:"Avatar",
+description:"Humans explore alien planet Pandora.",
+rating:"★★★★☆",
+image:"avatar.jpeg",
+link:"https://www.google.com/search?q=Avatar+movie+reviews"
+},
+{
+title:"Gravity",
+description:"Astronaut survival in space.",
+rating:"★★★★☆",
+image:"gravity.jpeg",
+link:"https://www.google.com/search?q=Gravity+movie+reviews"
+}
+];
+}
+
+else if (genre === "romantic") {
+movie = [
+{
+title:"Titanic",
+description:"A tragic love story aboard the famous ship.",
+rating:"★★★★★",
+image:"titanic.jpeg",
+link:"https://www.google.com/search?q=Titanic+movie+reviews"
+},
+{
+title:"The Notebook",
+description:"A beautiful love story that lasts a lifetime.",
+rating:"★★★★★",
+image:"thenotebook.jpeg",
+link:"https://www.google.com/search?q=The+Notebook+reviews"
+},
+{
+title:"La La Land",
+description:"A romantic musical about dreams and love.",
+rating:"★★★★☆",
+image:"lalaland.jpeg",
+link:"https://www.google.com/search?q=La+La+Land+reviews"
+},
+{
+title:"Before Sunrise",
+description:"Two strangers meet and fall in love in Europe.",
+rating:"★★★★☆",
+image:"beforesunrise.jpeg",
+link:"https://www.google.com/search?q=Before+Sunrise+reviews"
+},
+{
+title:"Love Story",
+description:"A classic emotional romantic drama.",
+rating:"★★★★☆",
+image:"lovestory.jpeg",
+link:"https://www.google.com/search?q=Love+Story+movie+reviews"
+}
+];
+}
+
+let container = document.getElementById("movieContainer");
+container.innerHTML = "";
+
+movie.forEach(function(m) {
+
+container.innerHTML += `
+<div class="card" onclick="window.open('${m.link}','_blank')">
+
+<img src="${m.image}" alt="Movie Image">
+
+<div class="card-content">
+<h2>${m.title}</h2>
+<p>${m.description}</p>
+<div class="rating">${m.rating}</div>
+</div>
+
+</div>
+`;
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
